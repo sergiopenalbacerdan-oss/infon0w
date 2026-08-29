@@ -13,10 +13,15 @@ const {
   processAttachment,
   publicErrorMessage
 } = require("./src/core");
+const {sendUserEmail, sendAdminEmail} = require("./src/email");
 
 initializeApp();
 
 const rateLimitPepper = defineSecret("INFON0W_RATE_LIMIT_PEPPER");
+const emailApiKey = defineSecret("INFON0W_EMAIL_API_KEY");
+const emailFrom = defineSecret("INFON0W_EMAIL_FROM");
+const emailReplyTo = defineSecret("INFON0W_EMAIL_REPLY_TO");
+const adminEmail = defineSecret("INFON0W_ADMIN_EMAIL");
 const REGION = "europe-west1";
 const ALLOWED_ORIGINS = [
   "https://infon0w.com",
@@ -30,7 +35,7 @@ const baseOptions = {
   invoker: "public",
   cors: ALLOWED_ORIGINS,
   enforceAppCheck: true,
-  secrets: [rateLimitPepper],
+  secrets: [rateLimitPepper, emailApiKey, emailFrom, emailReplyTo, adminEmail],
   maxInstances: 20,
   concurrency: 40,
   timeoutSeconds: 60,
@@ -132,7 +137,7 @@ async function persistSubmission(db, request, envelope, recordId, mediaPaths) {
       mediaPaths,
       mediaCount: mediaPaths.length,
       piiSeparated: true,
-      notification: {onscreen: "confirmed", email: "not_configured"},
+      notification: {onscreen: "confirmed", email: "pending_configuration"},
       createdAt: FieldValue.serverTimestamp(),
       updatedAt: FieldValue.serverTimestamp()
     });
@@ -203,8 +208,30 @@ exports.infon0wSubmit = onCall(baseOptions, async (request) => {
     const recordRef = db.collection("infon0w_records").doc();
     mediaPaths = mediaAllowed ? await uploadImages(recordRef.id, request.data.attachments) : [];
     let reference;
+    let emailStatus = "pending_configuration";
     try {
       reference = await persistSubmission(db, request, envelope, recordRef.id, mediaPaths);
+      const userEmail = (envelope.validated.pii && envelope.validated.pii.email) || null;
+      const nowIso = new Date().toISOString();
+      const emailData = {
+        reference,
+        date: nowIso,
+        statusLabel: envelope.kind === "PROJECT" ? "Propuesta recibida" : envelope.kind === "VIRTUAL" ? "Participación recibida" : "Recibido"
+      };
+      if (userEmail) {
+        const userResult = await sendUserEmail(envelope.kind, userEmail, emailData);
+        emailStatus = userResult.status;
+      }
+      const adminResult = await sendAdminEmail(envelope.kind, emailData);
+      if (emailStatus === "pending_configuration" && adminResult.status !== "pending_configuration") {
+        emailStatus = adminResult.status;
+      }
+      await db.collection("infon0w_records").doc(recordRef.id).update({
+        "notification.email": emailStatus,
+        "notification.userEmailStatus": userEmail ? (emailStatus === "pending_configuration" ? "skipped" : emailStatus) : "not_applicable",
+        "notification.adminEmailStatus": adminResult.status,
+        updatedAt: FieldValue.serverTimestamp()
+      });
     } catch (error) {
       await deleteUploads(mediaPaths);
       throw error;
@@ -215,7 +242,7 @@ exports.infon0wSubmit = onCall(baseOptions, async (request) => {
       reference,
       status: envelope.kind === "PROJECT" ? "proposal_received" : envelope.kind === "VIRTUAL" ? "participation_received" : "received",
       paymentStatus: envelope.kind === "MEMBER" ? "not_initiated" : null,
-      emailStatus: "not_configured"
+      emailStatus
     };
   } catch (error) {
     throw publicErrorMessage(error);

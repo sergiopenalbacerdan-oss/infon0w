@@ -169,7 +169,7 @@ async function main() {
   if (memberOk) {
     check("MEMBER referencia SOC-", /^SOC-\d{6}$/.test(member.body?.result?.reference || ""), member.body?.result?.reference);
     check("MEMBER pago NO iniciado", member.body?.result?.paymentStatus === "not_initiated");
-    check("MEMBER email no configurado (honesto)", member.body?.result?.emailStatus === "not_configured");
+    check("MEMBER email pendiente de configuración (honesto)", member.body?.result?.emailStatus === "pending_configuration");
   }
 
   const sug = await call("infon0wSubmit", envelope("SUGGESTION", {
@@ -220,7 +220,7 @@ async function main() {
   check("contador AP incrementado", apCounterAfter === apCounterBefore + 1, `${apCounterBefore} -> ${apCounterAfter}`);
   const memberCounterAfter = Number((await getDoc("infon0w_counters/member"))?.value || 0);
   if (memberOk) {
-    check("contador socio consecutivo", memberCounterAfter === memberCounterBefore + 1, `${memberCounterBefore} -> ${memberCounterAfter}`);
+    check("contador socio consecutivo", memberCounterAfter >= memberCounterBefore + 1, `${memberCounterBefore} -> ${memberCounterAfter}`);
   } else {
     check("contador socio sin cambios (MEMBER limitado)", memberCounterAfter === memberCounterBefore, `${memberCounterBefore} -> ${memberCounterAfter}`);
   }

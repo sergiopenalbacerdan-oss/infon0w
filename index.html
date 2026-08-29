@@ -704,6 +704,11 @@ dialog::backdrop{background:rgba(5,5,5,.55)}
       statusLabel:'Estado: ',
       paymentNotInitiated:'Pago: no iniciado. La solicitud queda registrada y el cobro se gestionará por el método elegido (TPV Globalcaja o SEPA). Ningún pago se realiza en esta web.',
       emailNotConfigured:'Email de confirmación automática: pendiente de configurar. Guarda tu referencia.',
+      emailPending:'Email: pendiente de configuración del servicio. Guarda tu referencia.',
+      emailQueued:'Email: en cola para envío.',
+      emailAccepted:'Email: aceptado por el proveedor.',
+      emailSent:'Email de confirmación enviado.',
+      emailFailed:'Email: no se pudo enviar la confirmación. Guarda tu referencia.',
       errorGeneric:'No se pudo completar la operación. Revisa los datos e inténtalo de nuevo.',
       errorNetwork:'Sin conexión con el servidor. Inténtalo de nuevo en unos minutos.',
       errorRate:'Demasiadas solicitudes. Espera unos segundos e inténtalo de nuevo.',
@@ -742,6 +747,11 @@ dialog::backdrop{background:rgba(5,5,5,.55)}
       statusLabel:'Status: ',
       paymentNotInitiated:'Payment: not initiated. The application is registered and the charge will be arranged through the chosen method (Globalcaja POS or SEPA). No payment is taken on this website.',
       emailNotConfigured:'Automatic confirmation email: not configured yet. Keep your reference.',
+      emailPending:'Email: service not configured yet. Keep your reference.',
+      emailQueued:'Email: queued for sending.',
+      emailAccepted:'Email: accepted by provider.',
+      emailSent:'Confirmation email sent.',
+      emailFailed:'Email: could not send confirmation. Keep your reference.',
       errorGeneric:'The operation could not be completed. Check the data and try again.',
       errorNetwork:'No connection to the server. Try again in a few minutes.',
       errorRate:'Too many requests. Wait a few seconds and try again.',
@@ -1061,7 +1071,11 @@ dialog::backdrop{background:rgba(5,5,5,.55)}
     var html='<p class="form-msg ok" style="font-size:15px">'+text(successPrefix(kind))+escAttr(data.reference||'')+'</p>';
     html+='<p class="small">'+text('statusLabel')+escAttr(String(data.status||''))+'</p>';
     if(kind==='MEMBER'&&data.paymentStatus)html+='<p class="small">'+text('paymentNotInitiated')+'</p>';
-    if(data.emailStatus==='not_configured')html+='<p class="small">'+text('emailNotConfigured')+'</p>';
+    if(data.emailStatus==='not_configured'||data.emailStatus==='pending_configuration')html+='<p class="small">'+text('emailPending')+'</p>';
+    else if(data.emailStatus==='queued')html+='<p class="small">'+text('emailQueued')+'</p>';
+    else if(data.emailStatus==='accepted')html+='<p class="small">'+text('emailAccepted')+'</p>';
+    else if(data.emailStatus==='sent')html+='<p class="small">'+text('emailSent')+'</p>';
+    else if(data.emailStatus==='failed')html+='<p class="small">'+text('emailFailed')+'</p>';
     html+='<button class="btn btn-dark" type="button" id="dynDone" style="margin-top:16px" data-es="'+escAttr(text('close'))+'" data-en="'+escAttr(text('close'))+'">'+text('close')+'</button>';
     form.innerHTML=html;
     var done=document.getElementById('dynDone');
@@ -1137,7 +1151,7 @@ dialog::backdrop{background:rgba(5,5,5,.55)}
       var result=await submitEnvelope('MEMBER',payload,{website:memberForm.elements.website.value,startedAt:staticStartedAt(memberForm)});
       var data=result.data||{};
       setMsgState(memberMsg,true,text('okMember')+(data.reference||''));
-      var extraNote=text('paymentNotInitiated')+(data.emailStatus==='not_configured'?' '+text('emailNotConfigured'):'');
+      var extraNote=text('paymentNotInitiated');if(data.emailStatus==='not_configured'||data.emailStatus==='pending_configuration')extraNote+=' '+text('emailPending');else if(data.emailStatus==='queued')extraNote+=' '+text('emailQueued');else if(data.emailStatus==='accepted')extraNote+=' '+text('emailAccepted');else if(data.emailStatus==='sent')extraNote+=' '+text('emailSent');else if(data.emailStatus==='failed')extraNote+=' '+text('emailFailed');
       showToast(text('okMember')+(data.reference||''));
       memberMsg.insertAdjacentText('beforeend',' '+extraNote);
       memberForm.reset();
