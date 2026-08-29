@@ -1,0 +1,17 @@
+rules_version = '2';
+
+// infon0w emulator-only rules.
+// PRODUCTION NOTE: the project-wide Storage security rules for n0w-humanlens
+// are managed and deployed from the n0w repository. infon0w uploads are
+// written exclusively by Cloud Functions with the Admin SDK and are never
+// served through public URLs; media is returned only by authorized callables.
+// This file exists only so the emulator suite runs with the same
+// deny-by-default posture. NEVER run `firebase deploy --only storage` from
+// this repository.
+service firebase.storage {
+  match /b/{bucket}/o {
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+  }
+}

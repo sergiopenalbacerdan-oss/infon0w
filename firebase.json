@@ -1,0 +1,52 @@
+{
+  "functions": {
+    "source": "functions",
+    "codebase": "infon0w",
+    "runtime": "nodejs22",
+    "ignore": [
+      "node_modules",
+      ".git",
+      "firebase-debug.log",
+      "firebase-debug.*.log",
+      "tests"
+    ]
+  },
+  "firestore": {
+    "rules": "firestore.rules"
+  },
+  "storage": {
+    "rules": "storage.rules"
+  },
+  "emulators": {
+    "functions": {
+      "port": 5010
+    },
+    "firestore": {
+      "port": 8091
+    },
+    "auth": {
+      "port": 9097
+    },
+    "storage": {
+      "port": 9197
+    },
+    "ui": {
+      "enabled": false
+    },
+    "singleProjectMode": true
+  },
+  "hosting": [
+    {
+      "site": "infon0w-web",
+      "public": ".",
+      "ignore": [
+        "firebase.json",
+        "functions/**",
+        "node_modules/**",
+        ".git/**",
+        "*.log",
+        ".firebase/**"
+      ]
+    }
+  ]
+}

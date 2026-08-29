@@ -1,0 +1,16 @@
+rules_version = '2';
+
+// infon0w emulator-only rules.
+// PRODUCTION NOTE: the project-wide Firestore security rules for n0w-humanlens
+// are managed and deployed from the n0w repository. infon0w collections are
+// intentionally NOT client-accessible: every infon0w operation goes through
+// Cloud Functions using the Admin SDK. This file exists only so the emulator
+// suite runs with the same deny-by-default posture. NEVER run
+// `firebase deploy --only firestore:rules` from this repository.
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
