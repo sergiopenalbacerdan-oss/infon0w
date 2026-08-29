@@ -107,6 +107,11 @@ h3{font-size:22px;line-height:1.2;margin-bottom:10px}
 .legal-placeholder .legal-en{margin-top:16px;font-size:13px;color:#999}
 .legal-placeholder .legal-en:empty{display:none}
 .legal-document > .btn{margin-top:24px}
+.legal-body{font-size:16px;line-height:1.7;color:var(--text)}
+.legal-body p{margin:12px 0}
+.legal-body ul{margin:12px 0;padding-left:24px}
+.legal-body li{margin:6px 0}
+.legal-body strong{font-weight:800}
 .sponsors{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
 .sponsors div{min-height:95px;border:1px dashed #aaa;border-radius:14px;display:flex;align-items:center;justify-content:center;color:#888;font-weight:800;background:#fff}
 .footer{max-width:1180px;margin:0 auto 28px;padding:50px 20px;border-top:1px solid var(--line);text-align:center;color:#777}
@@ -507,9 +512,9 @@ dialog::backdrop{background:rgba(5,5,5,.55)}
     <div class="heading-row">
       <div>
         <p class="kicker" data-es="Información legal" data-en="Legal information">Información legal</p>
-        <h2 id="legal-title" data-es="Documentos provisionales" data-en="Provisional documents">Documentos provisionales</h2>
+        <h2 id="legal-title" data-es="Documentos legales" data-en="Legal documents">Documentos legales</h2>
       </div>
-      <p class="side-note" data-es="Estos apartados están pendientes de publicación definitiva y revisión." data-en="These sections are pending final publication and review.">Estos apartados están pendientes de publicación definitiva y revisión.</p>
+      <p class="side-note" data-es="Aviso Legal y Privacidad son borradores reales pendientes de revisión jurídica. Estatutos, Cookies y Condiciones quedan pendientes de contenido definitivo." data-en="Legal Notice and Privacy are real drafts pending legal review. Statutes, Cookies and Terms remain pending definitive content.">Aviso Legal y Privacidad son borradores reales pendientes de revisión jurídica. Estatutos, Cookies y Condiciones quedan pendientes de contenido definitivo.</p>
     </div>
     <div class="tablist" role="tablist" aria-label="Documentos legales" data-aria-es="Documentos legales" data-aria-en="Legal documents" id="legalTabs">
       <button class="tab-btn" role="tab" id="tab-estatutos" aria-controls="panel-estatutos" aria-selected="true" data-es="Estatutos" data-en="Statutes">Estatutos</button>
@@ -533,24 +538,114 @@ dialog::backdrop{background:rgba(5,5,5,.55)}
 
     <div class="tab-panel" role="tabpanel" id="panel-aviso-legal" aria-labelledby="tab-aviso-legal" tabindex="0" hidden>
     <article class="legal-document" id="aviso-legal" data-source-file="aviso-legal.html" data-source-title="Aviso Legal · n0w" data-source-lang="es">
-      <p class="kicker" data-es="Documento provisional" data-en="Provisional document">Documento provisional</p>
+      <p class="kicker" data-es="Borrador v2 — pendiente de revisión jurídica" data-en="Draft v2 — pending legal review">Borrador v2 — pendiente de revisión jurídica</p>
       <h3 data-es="Aviso Legal" data-en="Legal Notice">Aviso Legal</h3>
-      <div class="legal-placeholder">
-        <p><strong data-es="Contenido pendiente de publicación." data-en="This content is pending publication.">Contenido pendiente de publicación.</strong></p>
-        <p data-es="El aviso legal de infon0w.com será publicado en esta página cuando esté completo y revisado." data-en="The legal notice for infon0w.com will be published on this page when it is complete and has been reviewed.">El aviso legal de infon0w.com será publicado en esta página cuando esté completo y revisado.</p>
-        <p class="legal-en" data-es="" data-en="This content is pending publication.">This content is pending publication.</p>
+      <div class="legal-body">
+        <p><strong data-es="1. Identificación del titular del servicio" data-en="1. Service owner identification">1. Identificación del titular del servicio</strong></p>
+        <ul>
+          <li data-es="Titular de la plataforma n0w: ASOCIACIÓN CULTURAL Y SOCIAL N0W" data-en="Platform owner: n0w CULTURAL AND SOCIAL ASSOCIATION">Titular de la plataforma n0w: ASOCIACIÓN CULTURAL Y SOCIAL N0W</li>
+          <li data-es="NIF: [REQUIERE DATOS REGISTRALES DE LA ASOCIACIÓN]" data-en="Tax ID: [REQUIRES ASSOCIATION REGISTRY DATA]">NIF: [REQUIERE DATOS REGISTRALES DE LA ASOCIACIÓN]</li>
+          <li data-es="Domicilio: C/ Ferez nº 6, 4º B, 02005 Albacete [CONFIRMADO DOCUMENTALMENTE, estatutos 27/03/2026, 2026-08-14]" data-en="Address: C/ Ferez nº 6, 4º B, 02005 Albacete [DOCUMENTED, statutes 27/03/2026, 2026-08-14]">Domicilio: C/ Ferez nº 6, 4º B, 02005 Albacete [CONFIRMADO DOCUMENTALMENTE, estatutos 27/03/2026, 2026-08-14]</li>
+          <li data-es="Inscripción registral: [REQUIERE DATOS REGISTRALES DE LA ASOCIACIÓN] (Registro de Asociaciones)" data-en="Registry registration: [REQUIRES ASSOCIATION REGISTRY DATA] (Association Registry)">Inscripción registral: [REQUIERE DATOS REGISTRALES DE LA ASOCIACIÓN] (Registro de Asociaciones)</li>
+          <li data-es="Correo de contacto y ejercicio de derechos: contacto@infon0w.com" data-en="Contact and rights exercise email: contacto@infon0w.com">Correo de contacto y ejercicio de derechos: contacto@infon0w.com</li>
+          <li data-es="Web oficial declarada: www.infon0w.com" data-en="Official website: www.infon0w.com">Web oficial declarada: www.infon0w.com</li>
+          <li data-es="Representante legal: Presidente D. Antonio Penalba Gómez [CONFIRMADO DOCUMENTALMENTE, estatutos 2026-08-14; rol a confirmar en la operativa real: [REQUIERE CONFIRMACIÓN JURÍDICA]]" data-en="Legal representative: President D. Antonio Penalba Gómez [DOCUMENTED, statutes 2026-08-14; role to confirm in real operation: [REQUIRES LEGAL CONFIRMATION]]">Representante legal: Presidente D. Antonio Penalba Gómez [CONFIRMADO DOCUMENTALMENTE, estatutos 2026-08-14; rol a confirmar en la operativa real: [REQUIERE CONFIRMACIÓN JURÍDICA]]</li>
+        </ul>
+        <p><strong data-es="2. Objeto" data-en="2. Purpose">2. Objeto</strong></p>
+        <p data-es="La plataforma n0w es un servicio de red social y humanismo digital (señales, espacios de participación, perfil, IA generativa opcional, geolocalización opcional). El acceso y uso se rigen por este Aviso Legal, las Condiciones de Uso, la Política de Privacidad y las Normas de Comunidad." data-en="The n0w platform is a social network and digital humanism service (signals, participation spaces, profile, optional generative AI, optional geolocation). Access and use are governed by this Legal Notice, the Terms of Use, the Privacy Policy and the Community Standards.">La plataforma n0w es un servicio de red social y humanismo digital (señales, espacios de participación, perfil, IA generativa opcional, geolocalización opcional). El acceso y uso se rigen por este Aviso Legal, las Condiciones de Uso, la Política de Privacidad y las Normas de Comunidad.</p>
+        <p><strong data-es="3. Propiedad intelectual e industrial" data-en="3. Intellectual and industrial property">3. Propiedad intelectual e industrial</strong></p>
+        <ul>
+          <li data-es="Autoría y PI de las creaciones originales: Sergio Israel Penalba Cerdán." data-en="Authorship and IP of original works: Sergio Israel Penalba Cerdán.">Autoría y PI de las creaciones originales: Sergio Israel Penalba Cerdán.</li>
+          <li data-es="Marcas «n0w» y «HumanLens»: solicitudes en tramitación ante la OEPM presentadas por GRUPO PYC MULTISERVICIOS EMPRESARIALES SLU — n0w (M4379715) y humanlens (M4379729), clases 35/41/42 y 42 respectivamente, estado EN TRAMITACIÓN. No se atribuye condición de 'marca registrada' ni titularidad registral consolidada hasta la resolución de concesión." data-en="Marks 'n0w' and 'HumanLens': applications pending before the OEPM filed by GRUPO PYC MULTISERVICIOS EMPRESARIALES SLU — n0w (M4379715) and humanlens (M4379729), classes 35/41/42 and 42 respectively, status PENDING. No 'registered trademark' status or consolidated registry ownership is attributed until the grant resolution.">Marcas «n0w» y «HumanLens»: solicitudes en tramitación ante la OEPM presentadas por GRUPO PYC MULTISERVICIOS EMPRESARIALES SLU — n0w (M4379715) y humanlens (M4379729), clases 35/41/42 y 42 respectivamente, estado EN TRAMITACIÓN. No se atribuye condición de 'marca registrada' ni titularidad registral consolidada hasta la resolución de concesión.</li>
+          <li data-es="Explotación: licencia de explotación a la Asociación Cultural y Social n0w [REQUIERE DOCUMENTACIÓN CONTRACTUAL]." data-en="Exploitation: exploitation license to the n0w Cultural and Social Association [REQUIRES CONTRACTUAL DOCUMENTATION]">Explotación: licencia de explotación a la Asociación Cultural y Social n0w [REQUIERE DOCUMENTACIÓN CONTRACTUAL].</li>
+          <li data-es="Contenido de los usuarios: titularidad de cada usuario; n0w usa licencias limitadas conforme a las Condiciones de Uso." data-en="User content: ownership of each user; n0w uses limited licenses in accordance with the Terms of Use.">Contenido de los usuarios: titularidad de cada usuario; n0w usa licencias limitadas conforme a las Condiciones de Uso.</li>
+        </ul>
+        <p data-es="Queda prohibida la reproducción, distribución o comunicación pública no autorizada de los activos de la plataforma." data-en="Unauthorized reproduction, distribution or public communication of platform assets is prohibited.">Queda prohibida la reproducción, distribución o comunicación pública no autorizada de los activos de la plataforma.</p>
+        <p><strong data-es="4. Responsabilidad" data-en="4. Liability">4. Responsabilidad</strong></p>
+        <ul>
+          <li data-es="El titular pone a disposición el servicio 'as is' y no garantiza la disponibilidad ininterrumpida ni la ausencia de errores." data-en="The owner makes the service available 'as is' and does not guarantee uninterrupted availability or error-free operation.">El titular pone a disposición el servicio 'as is' y no garantiza la disponibilidad ininterrumpida ni la ausencia de errores.</li>
+          <li data-es="No se hace responsable del contenido publicado por los usuarios; retirará contenido que infrinja la ley cuando tenga conocimiento efectivo." data-en="Not responsible for user-published content; will remove content that infringes the law when having effective knowledge.">No se hace responsable del contenido publicado por los usuarios; retirará contenido que infrinja la ley cuando tenga conocimiento efectivo.</li>
+          <li data-es="El usuario es responsable del contenido que publica y del uso que hace del servicio." data-en="The user is responsible for the content they publish and the use they make of the service.">El usuario es responsable del contenido que publica y del uso que hace del servicio.</li>
+        </ul>
+        <p><strong data-es="5. Uso y conducta" data-en="5. Use and conduct">5. Uso y conducta</strong></p>
+        <ul>
+          <li data-es="Se prohíbe el uso ilícito, fraudulento, de acoso, difamatorio, de incitación al odio, de menores sin consentimiento o que vulnere derechos de terceros." data-en="Illegal, fraudulent, harassing, defamatory, hate-inciting, use involving minors without consent, or use that infringes third-party rights is prohibited.">Se prohíbe el uso ilícito, fraudulento, de acoso, difamatorio, de incitación al odio, de menores sin consentimiento o que vulnere derechos de terceros.</li>
+          <li data-es="Se puede restringir o suspender el acceso a quienes infrinjan estas normas." data-en="Access may be restricted or suspended for those who violate these rules.">Se puede restringir o suspender el acceso a quienes infrinjan estas normas.</li>
+        </ul>
+        <p><strong data-es="6. Ley aplicable y jurisdicción" data-en="6. Applicable law and jurisdiction">6. Ley aplicable y jurisdicción</strong></p>
+        <ul>
+          <li data-es="Legislación aplicable: española (RGPD, LOPDGDD, LSSI / Ley de servicios digitales, LPI, LAU si procede)." data-en="Applicable law: Spanish (GDPR, LOPDGDD, LSSI / Digital Services Act, LPI, LAU if applicable).">Legislación aplicable: española (RGPD, LOPDGDD, LSSI / Ley de servicios digitales, LPI, LAU si procede).</li>
+          <li data-es="Para usuarios residentes en la EEE, competencia conforme a la normativa aplicable; sin perjuicio de los derechos del consumidor." data-en="For users resident in the EEA, jurisdiction in accordance with applicable regulations; without prejudice to consumer rights.">Para usuarios residentes en la EEE, competencia conforme a la normativa aplicable; sin perjuicio de los derechos del consumidor.</li>
+        </ul>
+        <p><strong data-es="7. Contacto" data-en="7. Contact">7. Contacto</strong></p>
+        <ul>
+          <li data-es="Ejercicio de derechos: contacto@infon0w.com." data-en="Exercise of rights: contacto@infon0w.com.">Ejercicio de derechos: contacto@infon0w.com.</li>
+          <li data-es="Notificaciones de contenido ilícito: contacto@infon0w.com." data-en="Notifications of illegal content: contacto@infon0w.com.">Notificaciones de contenido ilícito: contacto@infon0w.com.</li>
+        </ul>
+        <p class="legal-en" data-es="" data-en="Draft prepared from documentary records (B0/B8). Final version must undergo legal review, be added to the application as accessible content, and be signed in accordance with the established exploitation regime."></p>
       </div>
     </article>
     </div>
 
     <div class="tab-panel" role="tabpanel" id="panel-privacidad" aria-labelledby="tab-privacidad" tabindex="0" hidden>
     <article class="legal-document" id="privacidad" data-source-file="privacidad.html" data-source-title="Privacidad · n0w" data-source-lang="es">
-      <p class="kicker" data-es="Documento provisional" data-en="Provisional document">Documento provisional</p>
+      <p class="kicker" data-es="Borrador v2 — pendiente de revisión jurídica" data-en="Draft v2 — pending legal review">Borrador v2 — pendiente de revisión jurídica</p>
       <h3 data-es="Política de Privacidad" data-en="Privacy Policy">Política de Privacidad</h3>
-      <div class="legal-placeholder">
-        <p><strong data-es="Contenido pendiente de publicación." data-en="This content is pending publication.">Contenido pendiente de publicación.</strong></p>
-        <p data-es="La política de privacidad de infon0w.com será publicada en esta página cuando esté completa y revisada conforme a la normativa aplicable." data-en="The privacy policy for infon0w.com will be published on this page when it is complete and has been reviewed in accordance with the applicable regulations.">La política de privacidad de infon0w.com será publicada en esta página cuando esté completa y revisada conforme a la normativa aplicable.</p>
-        <p class="legal-en" data-es="" data-en="This content is pending publication.">This content is pending publication.</p>
+      <div class="legal-body">
+        <p><strong data-es="1. Responsable del tratamiento" data-en="1. Data controller">1. Responsable del tratamiento</strong></p>
+        <ul>
+          <li data-es="ASOCIACIÓN CULTURAL Y SOCIAL N0W" data-en="N0W CULTURAL AND SOCIAL ASSOCIATION">ASOCIACIÓN CULTURAL Y SOCIAL N0W</li>
+          <li data-es="NIF: [REQUIERE DATOS REGISTRALES DE LA ASOCIACIÓN]" data-en="Tax ID: [REQUIRES ASSOCIATION REGISTRY DATA]">NIF: [REQUIERE DATOS REGISTRALES DE LA ASOCIACIÓN]</li>
+          <li data-es="Domicilio: C/ Ferez nº 6, 4º B, 02005 Albacete [CONFIRMADO DOCUMENTALMENTE, estatutos 27/03/2026, 2026-08-14]" data-en="Address: C/ Ferez nº 6, 4º B, 02005 Albacete [DOCUMENTED, statutes 27/03/2026, 2026-08-14]">Domicilio: C/ Ferez nº 6, 4º B, 02005 Albacete [CONFIRMADO DOCUMENTALMENTE, estatutos 27/03/2026, 2026-08-14]</li>
+          <li data-es="Inscripción registral: [REQUIERE DATOS REGISTRALES DE LA ASOCIACIÓN]" data-en="Registry registration: [REQUIRES ASSOCIATION REGISTRY DATA]">Inscripción registral: [REQUIERE DATOS REGISTRALES DE LA ASOCIACIÓN]</li>
+          <li data-es="Contacto de ejercicio de derechos: contacto@infon0w.com" data-en="Rights exercise contact: contacto@infon0w.com">Contacto de ejercicio de derechos: contacto@infon0w.com</li>
+          <li data-es="Representante legal: Presidente D. Antonio Penalba Gómez [CONFIRMADO DOCUMENTALMENTE, estatutos 2026-08-14; rol a confirmar en la operativa real: [REQUIERE CONFIRMACIÓN JURÍDICA]]" data-en="Legal representative: President D. Antonio Penalba Gómez [DOCUMENTED, statutes 2026-08-14; role to confirm in real operation: [REQUIRES LEGAL CONFIRMATION]]">Representante legal: Presidente D. Antonio Penalba Gómez [CONFIRMADO DOCUMENTALMENTE, estatutos 2026-08-14; rol a confirmar en la operativa real: [REQUIERE CONFIRMACIÓN JURÍDICA]]</li>
+        </ul>
+        <p><strong data-es="2. Categorías de datos tratados" data-en="2. Categories of data processed">2. Categorías de datos tratados</strong></p>
+        <ul>
+          <li data-es="Datos de registro (email, identificación interna UID)." data-en="Registration data (email, internal UID).">Datos de registro (email, identificación interna UID).</li>
+          <li data-es="Datos de perfil públicos (nombre público, usuario, bio, avatar, intereses, redes) según preferencias de visibilidad." data-en="Public profile data (public name, username, bio, avatar, interests, networks) according to visibility preferences.">Datos de perfil públicos (nombre público, usuario, bio, avatar, intereses, redes) según preferencias de visibilidad.</li>
+          <li data-es="Contenido publicado (señales, espacios, mensajes, proyectos, comentarios)." data-en="Published content (signals, spaces, messages, projects, comments).">Contenido publicado (señales, espacios, mensajes, proyectos, comentarios).</li>
+          <li data-es="Metadatos técnicos (dispositivo, logs de actividad, token push, ubicación aproximada solo si globeVisible está activo)." data-en="Technical metadata (device, activity logs, push token, approximate location only if globeVisible is active).">Metadatos técnicos (dispositivo, logs de actividad, token push, ubicación aproximada solo si globeVisible está activo).</li>
+          <li data-es="Conversación con IA generativa (si el usuario la utiliza)." data-en="Conversation with generative AI (if the user uses it).">Conversación con IA generativa (si el usuario la utiliza).</li>
+          <li data-es="Datos de denuncias realizadas." data-en="Data of reports made.">Datos de denuncias realizadas.</li>
+        </ul>
+        <p><strong data-es="3. Finalidades y bases jurídicas" data-en="3. Purposes and legal bases">3. Finalidades y bases jurídicas</strong></p>
+        <ul>
+          <li data-es="Registro y gestión de la cuenta: ejecución de contrato (art. 6.1.b RGPD)." data-en="Account registration and management: contract performance (art. 6.1.b GDPR).">Registro y gestión de la cuenta: ejecución de contrato (art. 6.1.b RGPD).</li>
+          <li data-es="Prestación del servicio (publicación, mensajes, notificaciones, espacios): ejecución de contrato (art. 6.1.b RGPD)." data-en="Service provision (publication, messages, notifications, spaces): contract performance (art. 6.1.b GDPR).">Prestación del servicio (publicación, mensajes, notificaciones, espacios): ejecución de contrato (art. 6.1.b RGPD).</li>
+          <li data-es="Perfil público y directorio: consentimiento / interés legítimo (art. 6.1.a / 6.1.f RGPD)." data-en="Public profile and directory: consent / legitimate interest (art. 6.1.a / 6.1.f GDPR).">Perfil público y directorio: consentimiento / interés legítimo (art. 6.1.a / 6.1.f RGPD).</li>
+          <li data-es="Geolocalización en el globo (globeVisible): consentimiento explícito (art. 6.1.a RGPD)." data-en="Geolocation in the globe (globeVisible): explicit consent (art. 6.1.a GDPR).">Geolocalización en el globo (globeVisible): consentimiento explícito (art. 6.1.a RGPD).</li>
+          <li data-es="Notificaciones push (FCM): consentimiento (art. 6.1.a RGPD)." data-en="Push notifications (FCM): consent (art. 6.1.a GDPR).">Notificaciones push (FCM): consentimiento (art. 6.1.a RGPD).</li>
+          <li data-es="IA generativa: información previa + consentimiento [REQUIERE CONFIRMACIÓN JURÍDICA]." data-en="Generative AI: prior information + consent [REQUIRES LEGAL CONFIRMATION].">IA generativa: información previa + consentimiento [REQUIERE CONFIRMACIÓN JURÍDICA].</li>
+          <li data-es="Moderación/denuncias: obligación legal / interés legítimo (art. 6.1.c / 6.1.f RGPD)." data-en="Moderation/reports: legal obligation / legitimate interest (art. 6.1.c / 6.1.f GDPR).">Moderación/denuncias: obligación legal / interés legítimo (art. 6.1.c / 6.1.f RGPD).</li>
+          <li data-es="Estadísticas agregadas: interés legítimo (art. 6.1.f RGPD)." data-en="Aggregate statistics: legitimate interest (art. 6.1.f GDPR).">Estadísticas agregadas: interés legítimo (art. 6.1.f RGPD).</li>
+        </ul>
+        <p><strong data-es="4. Destinatarios (encargados)" data-en="4. Recipients (processors)">4. Destinatarios (encargados)</strong></p>
+        <ul>
+          <li data-es="Google LLC / Firebase (Auth, Firestore, Storage, Functions, Hosting, FCM, App Check) — encargado de tratamiento conforme a Google Cloud Processor." data-en="Google LLC / Firebase (Auth, Firestore, Storage, Functions, Hosting, FCM, App Check) — processor in accordance with Google Cloud Processor.">Google LLC / Firebase (Auth, Firestore, Storage, Functions, Hosting, FCM, App Check) — encargado de tratamiento conforme a Google Cloud Processor.</li>
+          <li data-es="Google Vertex AI (IA generativa) — encargado." data-en="Google Vertex AI (generative AI) — processor.">Google Vertex AI (IA generativa) — encargado.</li>
+          <li data-es="Google Fonts / Font Awesome (CDN) y reCAPTCHA — terceros (ver política de cada uno)." data-en="Google Fonts / Font Awesome (CDN) and reCAPTCHA — third parties (see each policy).">Google Fonts / Font Awesome (CDN) y reCAPTCHA — terceros (ver política de cada uno).</li>
+          <li data-es="No se venden datos personales." data-en="Personal data is not sold.">No se venden datos personales.</li>
+        </ul>
+        <p><strong data-es="5. Transferencias internacionales" data-en="5. International transfers">5. Transferencias internacionales</strong></p>
+        <p data-es="Servicios alojados por Google fuera de la EEE; mecanismos: cláusulas contractuales tipo / condiciones Google Cloud Processor [REQUIERE CONFIRMACIÓN]." data-en="Services hosted by Google outside the EEA; mechanisms: standard contractual clauses / Google Cloud Processor terms [REQUIRES CONFIRMATION].">Servicios alojados por Google fuera de la EEE; mecanismos: cláusulas contractuales tipo / condiciones Google Cloud Processor [REQUIERE CONFIRMACIÓN].</p>
+        <p><strong data-es="6. Conservación" data-en="6. Retention">6. Conservación</strong></p>
+        <p data-es="Mientras exista cuenta; notificaciones leídas 30 días; FCM 60 días sin uso; presencia borrada al deshabilitar globeVisible; estadísticas 7-30 días. Resto [REQUIERE DEFINICIÓN] pendiente de política de retención." data-en="While account exists; read notifications 30 days; FCM 60 days unused; presence deleted when disabling globeVisible; statistics 7-30 days. Rest [REQUIRES DEFINITION] pending retention policy.">Mientras exista cuenta; notificaciones leídas 30 días; FCM 60 días sin uso; presencia borrada al deshabilitar globeVisible; estadísticas 7-30 días. Resto [REQUIERE DEFINICIÓN] pendiente de política de retención.</p>
+        <p><strong data-es="7. Derechos del interesado" data-en="7. Data subject rights">7. Derechos del interesado</strong></p>
+        <ul>
+          <li data-es="Acceso, rectificación, supresión, oposición, limitación, portabilidad y retirada de consentimiento: escribiendo a contacto@infon0w.com (debe acreditarse la identidad)." data-en="Access, rectification, erasure, objection, restriction, portability and consent withdrawal: write to contacto@infon0w.com (identity must be verified).">Acceso, rectificación, supresión, oposición, limitación, portabilidad y retirada de consentimiento: escribiendo a contacto@infon0w.com (debe acreditarse la identidad).</li>
+          <li data-es="Reclamación ante la Agencia Española de Protección de Datos (AEPD)." data-en="Complaint before the Spanish Data Protection Agency (AEPD).">Reclamación ante la Agencia Española de Protección de Datos (AEPD).</li>
+        </ul>
+        <p><strong data-es="8. IA generativa" data-en="8. Generative AI">8. IA generativa</strong></p>
+        <p data-es="Modelos: Google Vertex AI gemini-2.5-flash (encargado). El usuario debe recibir información previa clara sobre el uso de IA, poder desactivarla y conocer el tratamiento de sus conversaciones [REQUIERE CONFIRMACIÓN JURÍDICA]." data-en="Models: Google Vertex AI gemini-2.5-flash (processor). The user must receive clear prior information about AI use, be able to deactivate it, and know how their conversations are processed [REQUIRES LEGAL CONFIRMATION].">Modelos: Google Vertex AI gemini-2.5-flash (encargado). El usuario debe recibir información previa clara sobre el uso de IA, poder desactivarla y conocer el tratamiento de sus conversaciones [REQUIERE CONFIRMACIÓN JURÍDICA].</p>
+        <p><strong data-es="9. Cookies/localStorage" data-en="9. Cookies/localStorage">9. Cookies/localStorage</strong></p>
+        <p data-es="La aplicación usa almacenamiento local del navegador (localStorage) para sesiones, preferencias y borradores; las cookies técnicas propias (si existieran) serán imprescindibles. Mecanismo de consentimiento pendiente de implementar (B10)." data-en="The application uses browser local storage (localStorage) for sessions, preferences and drafts; technical own cookies (if any) will be essential. Consent mechanism pending implementation (B10).">La aplicación usa almacenamiento local del navegador (localStorage) para sesiones, preferencias y borradores; las cookies técnicas propias (si existieran) serán imprescindibles. Mecanismo de consentimiento pendiente de implementar (B10).</p>
+        <p><strong data-es="10. Menores" data-en="10. Minors">10. Menores</strong></p>
+        <p data-es="[REQUIERE POLÍTICA DE MENORES] — edad mínima y consentimiento parental conforme a normativa aplicable (véase borrador de política de menores pendiente R9)." data-en="[REQUIRES MINORS POLICY] — minimum age and parental consent in accordance with applicable regulations (see pending minors policy draft R9).">[REQUIERE POLÍTICA DE MENORES] — edad mínima y consentimiento parental conforme a normativa aplicable (véase borrador de política de menores pendiente R9).</p>
+        <p><strong data-es="11. Actualizaciones" data-en="11. Updates">11. Actualizaciones</strong></p>
+        <p data-es="Esta política podrá actualizarse; la versión vigente estará disponible dentro de la aplicación." data-en="This policy may be updated; the current version will be available within the application.">Esta política podrá actualizarse; la versión vigente estará disponible dentro de la aplicación.</p>
+        <p class="legal-en" data-es="" data-en="Draft v2; must be synchronized with the visible overlay text in index.html (which already identifies the ASOCIACIÓN CULTURAL Y SOCIAL N0W as controller, R2 rev.7), legally reviewed and approved by the controller before launch."></p>
       </div>
     </article>
     </div>
