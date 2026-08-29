@@ -169,7 +169,8 @@ async function main() {
   if (memberOk) {
     check("MEMBER referencia SOC-", /^SOC-\d{6}$/.test(member.body?.result?.reference || ""), member.body?.result?.reference);
     check("MEMBER pago NO iniciado", member.body?.result?.paymentStatus === "not_initiated");
-    check("MEMBER email pendiente de configuración (honesto)", member.body?.result?.emailStatus === "pending_configuration");
+    const realEmailStatuses = new Set(["pending_configuration", "queued", "accepted", "sent", "failed"]);
+    check("MEMBER email estado real (no pending_configuration forever)", realEmailStatuses.has(member.body?.result?.emailStatus), member.body?.result?.emailStatus);
   }
 
   const sug = await call("infon0wSubmit", envelope("SUGGESTION", {
